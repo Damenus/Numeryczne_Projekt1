@@ -2,8 +2,11 @@
 // Damian Darczuk 154824
 
 #include "stdafx.h"
+#include <iostream>
 #include <stdio.h>      /* printf */
 #include <math.h>       /* sinh, log */
+
+using namespace std;
 
 long long silnia(unsigned int n) {
 	long long int result = 1;
@@ -13,10 +16,11 @@ long long silnia(unsigned int n) {
 	return result;
 }
 
+
 int main()
 {
-	double epsilon = 0.001;
-	double param = 15;
+	double epsilon = 0.1;
+	double param = 12;
 
 //--------------------------------------------------------------------
 	// Liczenie przy u¿yciu bibloteki
@@ -29,14 +33,14 @@ int main()
 	//Liczenie kolejnych wyrazów szeregu na podstawie poprzedniego	
 
 	int k = 0;
-	float wynik = 0, S = param, wyniki_poœrednie[10000], x = param;	
+	double wynik = 0, S = param, wyniki_poœrednie[50], x = param;	
 	
 	do {
 
 		wynik = wynik + S;			//sumowanie max->min
 		wyniki_poœrednie[k] = S;	//wyniki poœrednie do sumowania min->max
 
-		k = k + 1;					//inkrementacja
+		k = k + 1;
 		
 		S = S * (x * x) / ((2 * k + 1) * (2 * k));	// kolejny wyraz szeregu obliczany na podstawie poprzedniego		
 				
